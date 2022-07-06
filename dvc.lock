@@ -4,8 +4,15 @@ stages:
     cmd: python3 src/models/train_model.py
     deps:
     - path: src/models/train_model.py
-      md5: a2b0142e2c7d092c392c7fb651e472ed
-      size: 2459
+      md5: 93adc2b5502b9c7040fa0fe964e82df8
+      size: 2909
+    outs:
+    - path: reports/metrics.json
+      md5: 2a9fe7ee6cfd86bf95e8f7726585f396
+      size: 54
+    - path: reports/metrics.png
+      md5: 0bd66084d059a6bac86f60a55887d06c
+      size: 24297
   evaluate:
     cmd:
     - python3 src/evaluate.py --config=params.yaml

@@ -10,7 +10,7 @@ stages:
     outs:
     - reports/metrics.png
     metrics:
-    - report/metrics.json:
+    - reports/metrics.json:
         cache: false
   predict:
     cmd: python3 src/models/predict_model.py

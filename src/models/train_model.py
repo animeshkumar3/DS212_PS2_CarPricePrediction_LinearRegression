@@ -1,5 +1,8 @@
 import pandas as pd
 import numpy as np
+# import logging
+import matplotlib.pyplot as plt
+import json
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import OneHotEncoder
 from sklearn.preprocessing import StandardScaler
@@ -84,6 +87,6 @@ mae = np.sqrt(mean_absolute_error(y_test, y_pred))
 with open("reports/metrics.json", 'w+') as outfile:
         json.dump({ "RMSE": rmse, "MAE": mae}, outfile)
 
-plt.bar(["RMSE","MAE"],[rmse,mae])
+plt.plot(["RMSE","MAE"],[rmse,mae])
 plt.title("Lin Reg Model Evaluation Metrics")
 plt.savefig("reports/metrics.png")

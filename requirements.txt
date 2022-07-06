@@ -5,3 +5,4 @@ numpy
 numpyencoder
 matplotlib
 python-dotenv
+matplotlib
