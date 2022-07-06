@@ -25,6 +25,6 @@ jobs:
           dvc metrics diff --show-md main > report.md
           
           #add report
-          cml-publish reports/metrics.png --md >> reports.md
+          cml-publish reports/metrics.png --md >> report.md
           cml-send-comment report.md
     
