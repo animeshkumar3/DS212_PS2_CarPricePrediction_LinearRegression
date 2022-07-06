@@ -1,0 +1,28 @@
+name: carPriceTrain
+on: [push]
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: iterative/setup-cml@v1
+      - name: Train model
+        env:
+          repo_tokn: ${{GITHUB_TOKEN}}
+        run: echo Hello, world!
+
+      # Runs a set of commands using the runners shell
+      - name: Run a multi-line script
+        run: |
+          pip install -r requirements.txt
+          pip install -e
+          
+          dvc repro
+          
+          git fetch --prune
+          dvc metrics diff --show.md main > report.md
+          
+          #add report
+          cml-publish reports/metrics.png --md >> reports.md
+          cml-send-comment report.md
+    
