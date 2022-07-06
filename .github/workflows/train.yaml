@@ -6,25 +6,16 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - uses: iterative/setup-cml@v1
-      - name: Train model
+      - name: Train
         env:
           repo_token: ${{ secrets.GITHUB_TOKEN }}
-        run: echo Hello, world!
-
-      # Runs a set of commands using the runners shell
-      - name: Run a multi-line script
         run: |
-          pip install -r requirements.txt
-          pip install -e .
-          make clean
-          make data
-          
+          # Your ML workflow goes here
+          make all
           dvc repro
-          
           git fetch --prune
           dvc metrics diff --show-md main > report.md
-          
-          #add report
+          # Add report 
           cml-publish reports/metrics.png --md >> report.md
           cml-send-comment report.md
     
