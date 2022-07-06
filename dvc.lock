@@ -1,22 +1,11 @@
 schema: '2.0'
 stages:
   train:
-    cmd:
-    - python3 src/train.py --config=params.yaml
+    cmd: python3 src/models/train_model.py
     deps:
-    - path: params.yaml
-      md5: 49443d433e9091625233931b291c3d46
-      size: 125
-    - path: report/starttime
-      md5: 20df7002ab8cf070c316478406a9a4f2
-      size: 61
-    - path: src/train.py
-      md5: 3a84e0a26d18b79327ddf070a82e6362
-      size: 1764
-    outs:
-    - path: report/buildtime
-      md5: d87b3fa3ee72d0401700f82f805e19b0
-      size: 66
+    - path: src/models/train_model.py
+      md5: a2b0142e2c7d092c392c7fb651e472ed
+      size: 2459
   evaluate:
     cmd:
     - python3 src/evaluate.py --config=params.yaml
@@ -46,3 +35,15 @@ stages:
     - path: report/starttime
       md5: 20df7002ab8cf070c316478406a9a4f2
       size: 61
+  predict:
+    cmd: python3 src/models/predict_model.py
+    deps:
+    - path: src/models/predict_model.py
+      md5: 5e459410a418754779e744f4ab38648e
+      size: 1115
+  prepare:
+    cmd: python3 src/data/prepare_data.py ./data
+    deps:
+    - path: src/data/prepare_data.py
+      md5: b823f4d176206a9383a71d3ab061cc31
+      size: 1017

@@ -1,18 +1,16 @@
 stages:
   prepare:
-    cmd: python3 src/data/make_dataset.py ./data/row/ ./data/processed
+    cmd: python3 src/data/prepare_data.py ./data
     deps:
-    - data/raw/mnist.npz
-    - srs/data/make_dataset.py
+    - src/data/prepare_data.py
   train:
     cmd: python3 src/models/train_model.py
     deps:
     - src/models/train_model.py
-    outs:
-    - report/metrics.png
-    metrics:
-    - report/metrics.json:
-        cache: false
+
+    # metrics:
+    # - report/metrics.json:
+    #     cache: false
   predict:
     cmd: python3 src/models/predict_model.py
     deps:

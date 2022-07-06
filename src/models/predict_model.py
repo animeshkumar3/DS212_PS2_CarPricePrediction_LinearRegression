@@ -6,6 +6,7 @@ from sklearn.preprocessing import StandardScaler
 from sklearn.linear_model import LinearRegression
 from sklearn.metrics import mean_squared_error
 from sklearn.metrics import mean_absolute_error
+from train_model import * 
 
 def performance_on_test(model,X_test,y_test):
   mean_sq_err = 0; mean_abs_err = 0;
