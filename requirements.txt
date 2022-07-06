@@ -1,11 +1,6 @@
-Flask
-Pillow
+dvc
+sklearn
+pandas
 numpy
-tensorflow-cpu
-keras
-Markup
-jinja2
-jsonpickle
-gunicorn
-gtts
-opencv-python-headless
+numpyencoder
+matplotlib
