@@ -7,7 +7,7 @@
 PROJECT_DIR := $(shell dirname $(realpath $(lastword $(MAKEFILE_LIST))))
 BUCKET = [OPTIONAL] your-bucket-for-syncing-data (do not include 's3://')
 PROFILE = default
-PROJECT_NAME = diabetes_prediction
+PROJECT_NAME = car Price prediction using Lin Regression
 PYTHON_INTERPRETER = python3
 
 ifeq (,$(shell which conda))
