@@ -74,3 +74,16 @@ def lin_reg_parameters(model):
 categorical_col, numerical_col = categorical_and_numerical_columns_regression(car_price_dataset)
 X_train, y_train, X_test, y_test = prepare_data_regression(train, test, categorical_col, numerical_col)
 lin_reg_model = fit_model_to_the_data(X_train,y_train)
+
+y_pred = lin_reg_model.predict(X_test)
+
+rmse = np.sqrt(mean_squared_error(y_test, y_pred))
+mae = np.sqrt(mean_absolute_error(y_test, y_pred))
+
+# Now print to file
+with open("reports/metrics.json", 'w+') as outfile:
+        json.dump({ "RMSE": rmse, "MAE": mae}, outfile)
+
+plt.bar(["RMSE","MAE"],[rmse,mae])
+plt.title("Lin Reg Model Evaluation Metrics")
+plt.savefig("reports/metrics.png")

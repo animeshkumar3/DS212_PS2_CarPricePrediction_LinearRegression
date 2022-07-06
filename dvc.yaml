@@ -7,10 +7,11 @@ stages:
     cmd: python3 src/models/train_model.py
     deps:
     - src/models/train_model.py
-
-    # metrics:
-    # - report/metrics.json:
-    #     cache: false
+    outs:
+    - reports/metrics.png
+    metrics:
+    - report/metrics.json:
+        cache: false
   predict:
     cmd: python3 src/models/predict_model.py
     deps:
