@@ -5,7 +5,7 @@ setup:
 
 ## Make Dataset
 data: install
-	python3 src/data/prepre_data.py data
+	python3 src/data/prepare_data.py data
 
 ## Delete all compiled Python files
 clean:
